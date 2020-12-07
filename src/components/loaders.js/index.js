@@ -42,7 +42,7 @@ const SpinnerContainer = styled.div`
 export function FullPageSpinner() {
   return (
     <FullSpinnerContainer>
-      <CgSpinner fontSize={35} color={colors.battleShipGreen} aria-label="loading" />
+      <CgSpinner fontSize={35} color={colors.yellow} aria-label="loading" />
     </FullSpinnerContainer>
   );
 }
@@ -50,7 +50,7 @@ export function FullPageSpinner() {
 export function Spinner() {
   return (
     <SpinnerContainer>
-      <CgSpinner color={colors.battleShipGreen} aria-label="loading" />
+      <CgSpinner color={colors.yellow} aria-label="loading" />
     </SpinnerContainer>
   );
 }

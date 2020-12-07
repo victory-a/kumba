@@ -2,25 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import GlobalStyles from "styles";
 import App from "./App";
+import UserProvider from "contexts/UserContext";
 
-import { ReactQueryConfigProvider } from "react-query";
-
-// react query config
-const queryConfig = {
-  queries: {
-    retry: 3,
-    throwOnError: false,
-    useErrorBoundary: false,
-    refetchOnWindowFocus: false
-  }
-};
 
 ReactDOM.render(
-  // <React.StrictMode>
-  <ReactQueryConfigProvider config={queryConfig}>
+  <React.StrictMode>
     <GlobalStyles />
-    <App />
-  </ReactQueryConfigProvider>,
-  // </React.StrictMode>,
+    <UserProvider>
+      <App />
+    </UserProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,18 +1,48 @@
 import React, { lazy, Suspense } from "react";
-import ToggleCartProvider from "contexts/ToggleCart";
 import { FullPageSpinner } from "components/loaders.js";
-import CartProvider from "contexts/Cart/CartContext";
 import ErrorBoundary from "components/errorBoundary";
+import { UserContext } from "contexts/UserContext";
+import doAlert from "components/doAlert";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-const ProductGrid = lazy(() => import("./components/grid"));
-const Header = lazy(() => import("./components/Header"));
+const Summary = lazy(() => import("./pages/Summary"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 function App() {
+  const url = process.env.REACT_APP_BASE_URL;
+  const { setUserData, setLoading } = React.useContext(UserContext);
+
+  React.useEffect(() => {
+    fetchUserData();
+
+    function fetchUserData() {
+      setLoading(true);
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          setUserData(data);
+        })
+        .catch(err => {
+          doAlert("ooops! unable to fetch user data", "error");
+          setLoading(false);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <ErrorBoundary>
-      <Suspense fallback={<FullPageSpinner />}>
-      </Suspense>
-    </ErrorBoundary>
+    <Router>
+      <ErrorBoundary>
+        <Suspense fallback={<FullPageSpinner />}>
+          <Switch>
+            <Route exact path="/" component={Profile} />
+            <Route path="/summary" component={Summary} />
+            <Route path="*" component={() => <Redirect to="/" />} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </Router>
   );
 }
 

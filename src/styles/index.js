@@ -44,7 +44,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     outline: none;
     color: ${colors.black};
-    background: ${colors.white};
+    background: ${colors.yellow};
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;

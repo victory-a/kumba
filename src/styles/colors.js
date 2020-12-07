@@ -1,5 +1,6 @@
 export default {
   primary: "#3A3276",
+  yellow: "#DD9F2C",
   white: "#FFFFFF",
   black: "#000",
   battleShipGreen: "#4B5548",
