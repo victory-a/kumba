@@ -38,12 +38,12 @@ const GlobalStyles = createGlobalStyle`
  body {
     width: 100%;
     height: 100%;
-    font-size: 1.6rem;
+    font-size: 2rem;
     min-height: 100%;
     font-family: 'Nunito Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     outline: none;
-    color: ${colors.black};
+    color: ${colors.white};
     background: ${colors.yellow};
     overflow-x: hidden;
     min-height: 100vh;

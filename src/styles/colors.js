@@ -2,6 +2,7 @@ export default {
   primary: "#3A3276",
   yellow: "#DD9F2C",
   white: "#FFFFFF",
+  red: "#DA020B",
   black: "#000",
   battleShipGreen: "#4B5548",
   battleShipGreenHover: "#2A2E2A",

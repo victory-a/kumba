@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UserContext = React.createContext();
+const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
   const { Provider } = UserContext;
@@ -10,4 +10,15 @@ const UserProvider = ({ children }) => {
   return <Provider value={{ userData, setUserData, loading, setLoading }}>{children}</Provider>;
 };
 
-export default  UserProvider;
+export default UserProvider;
+
+// custom hook for accessing user data
+export const useUserData = () => {
+  const context = React.useContext(UserContext);
+
+  if (!context) {
+    throw new Error("useUserData must be used within a CartProvider");
+  }
+
+  return context;
+};

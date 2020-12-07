@@ -42,7 +42,7 @@ const SpinnerContainer = styled.div`
 export function FullPageSpinner() {
   return (
     <FullSpinnerContainer>
-      <CgSpinner fontSize={35} color={colors.yellow} aria-label="loading" />
+      <CgSpinner fontSize={35} color={colors.red} aria-label="loading" />
     </FullSpinnerContainer>
   );
 }

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { FullPageSpinner } from "components/loaders.js";
 import ErrorBoundary from "components/errorBoundary";
-import { UserContext } from "contexts/UserContext";
+import { useUserData } from "contexts/UserContext";
 import doAlert from "components/doAlert";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 
 function App() {
   const url = process.env.REACT_APP_BASE_URL;
-  const { setUserData, setLoading } = React.useContext(UserContext);
+  const { setUserData, setLoading } = useUserData();
 
   React.useEffect(() => {
     fetchUserData();
@@ -22,6 +22,7 @@ function App() {
         .then(response => response.json())
         .then(data => {
           setUserData(data);
+          setLoading(false);
         })
         .catch(err => {
           doAlert("ooops! unable to fetch user data", "error");
