@@ -33,4 +33,26 @@ const Button = styled.button`
   }
 `;
 
+export const QuantityButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  min-width: 60px;
+  margin-right: 1rem;
+  margin-top: 1rem;
+
+  & > button.selector {
+    color: #fff;
+    background: transparent;
+    min-height: 30px;
+    width: 30%;
+  }
+
+  & > p {
+    font-size: 0.825rem;
+    text-align: center;
+  }
+`;
+
 export default Button;

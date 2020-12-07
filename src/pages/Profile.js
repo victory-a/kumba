@@ -7,8 +7,9 @@ import { FullPageSpinner } from "components/loaders.js";
 import { device } from "styles";
 
 const Profile = () => {
-  const { userData, loading } = useUserData();
+  const { userData, loading, state } = useUserData();
   const { user } = userData ?? {};
+console.log(state);
 
   return (
     <Fragment>
@@ -60,7 +61,7 @@ export default Profile;
 const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 98%;
   max-width: 100rem;
   margin: 0 auto;
   padding: 2rem 0;
@@ -84,7 +85,7 @@ const Wrapper = styled.main`
   }
 `;
 
-const TextContainer = styled.div`
+const TextContainer = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;

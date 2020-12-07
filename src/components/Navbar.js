@@ -4,7 +4,7 @@ import { device } from "styles";
 import colors from "styles/colors";
 
 import logo from "assets/logo.webp";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -14,12 +14,12 @@ const Navbar = () => {
       </Link>
 
       <div className="links-wrapper">
-        <Link to="/">
+        <NavLink exact to="/" activeClassName="active">
           <p>Profile</p>
-        </Link>
-        <Link to="/summary">
+        </NavLink>
+        <NavLink to="/summary" activeClassName="active">
           <p>Summary</p>
-        </Link>
+        </NavLink>
       </div>
     </Wrapper>
   );
@@ -44,9 +44,22 @@ const Wrapper = styled.nav`
       color: ${colors.red};
       font-size: 1.7rem;
       font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease-in-out;
 
       &:first-of-type {
         margin-right: 2rem;
+      }
+
+      &:hover {
+        color: ${colors.whiteSmoke};
+      }
+
+      &.active {
+        color: ${colors.whiteSmoke};
+
+        /* text-decoration: underline !important; */
+        opacity: 0.6;
       }
     }
 

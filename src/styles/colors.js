@@ -4,6 +4,7 @@ export default {
   white: "#FFFFFF",
   red: "#DA020B",
   black: "#000",
+  grey: "#2c3345",
   battleShipGreen: "#4B5548",
   battleShipGreenHover: "#2A2E2A",
   whiteSmoke: "#F8F8F8",
