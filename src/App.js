@@ -4,6 +4,7 @@ import ErrorBoundary from "components/errorBoundary";
 import { useUserData } from "contexts/UserContext";
 import doAlert from "components/doAlert";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import Navbar from "components/Navbar";
 
 const Summary = lazy(() => import("./pages/Summary"));
 const Profile = lazy(() => import("./pages/Profile"));
@@ -36,6 +37,7 @@ function App() {
     <Router>
       <ErrorBoundary>
         <Suspense fallback={<FullPageSpinner />}>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Profile} />
             <Route path="/summary" component={Summary} />
