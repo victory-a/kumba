@@ -2,7 +2,7 @@
 
 The task was to implement an order summary and user profile page
 
-Live URL: []()
+Live URL: [https://victory-kumba.netlify.app/](https://victory-kumba.netlify.app/)
 
 ## Instructions  
 To run the project;
