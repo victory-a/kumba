@@ -3,8 +3,14 @@ import styled from "styled-components";
 import colors from "styles/colors";
 import { QuantityButton } from "components/Button";
 import rupieCurrency from "utils/rupieCurrency";
+import summaryActions from "contexts/summaryActions";
+import { useUserData } from "contexts/UserContext";
 
-const OrderItem = ({ image, name, category, quantity = 0, total = 0.0, subtotal = 0.0 }) => {
+const OrderItem = ({ item }) => {
+  const { image, name, category, quantity, price} = item;
+
+  const { dispatch } = useUserData();
+
   return (
     <Wrapper>
       <div className="container">
@@ -16,20 +22,38 @@ const OrderItem = ({ image, name, category, quantity = 0, total = 0.0, subtotal 
           <h3>{name}</h3>
           <p>{category}</p>
           <QuantityButton>
-            <button className="selector" onClick={() => console.log("increase")}>
+            <button
+              className="selector"
+              onClick={() =>
+                dispatch({
+                  type: summaryActions.DECREASE,
+                  payload: { id: item.id }
+                })
+              }
+            >
               -
             </button>
             <p>{quantity}</p>
-            <button className="selector" onClick={() => console.log("decrease")}>
+            <button
+              className="selector"
+              onClick={() =>
+                dispatch({
+                  type: summaryActions.INCREASE,
+                  payload: { id: item.id }
+                })
+              }
+            >
               +
             </button>
           </QuantityButton>
         </div>
 
-        <p className="total">{rupieCurrency(total)}</p>
+        <p className="total">{rupieCurrency(price)}</p>
       </div>
 
-      <p className="sub-total">{`Item subtotal: ${rupieCurrency(subtotal)}`}</p>
+      <p className="sub-total">
+        subtotal: <span>{rupieCurrency(price * quantity)}</span>
+      </p>
     </Wrapper>
   );
 };
@@ -86,7 +110,14 @@ const Wrapper = styled.div`
     color: ${colors.white};
     text-align: right;
     font-weight: 600;
-    /* margin-left: auto; */
+
     margin-right: 1rem;
+
+    span {
+      margin-left: 5px;
+      color: #2c3345;
+      font-weight: 600;
+      font-size: 16px;
+    }
   }
 `;
