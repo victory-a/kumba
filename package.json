@@ -1,0 +1,67 @@
+{
+  "name": "buddy-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "cogo-toast": "^4.2.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-paypal-button-v2": "^2.6.2",
+    "react-query": "^2.4.0",
+    "react-query-devtools": "^2.4.3",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "jsdoc": "^3.6.3",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.+(js|ts|graphql|yml|yaml|vue)": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*/*.+(css|sass|less|scss|json|html)": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
