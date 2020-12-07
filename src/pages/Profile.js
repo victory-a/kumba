@@ -7,7 +7,7 @@ import { FullPageSpinner } from "components/loaders.js";
 import { device } from "styles";
 
 const Profile = () => {
-  const { userData, loading, state } = useUserData();
+  const { userData, loading } = useUserData();
   const { user } = userData ?? {};
 
   return (
