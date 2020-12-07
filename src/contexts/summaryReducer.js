@@ -1,9 +1,16 @@
 import summaryActions from "./summaryActions";
 import computeTotal from "./computeTotal";
 
-
 function summaryReducer(state, action) {
   switch (action.type) {
+    case summaryActions.INIT: {
+      return {
+        items: action.payload.items,
+        totalCost: computeTotal(action.payload.items).totalCost,
+        totalTax: computeTotal(action.payload.items).totalTax
+      };
+    }
+    
     case summaryActions.INCREASE: {
       const updatedState = state.items.map(item => {
         if (item.id === action.payload.id) return { ...item, quantity: item.quantity + 1 };

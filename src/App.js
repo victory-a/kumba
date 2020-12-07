@@ -11,7 +11,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 
 function App() {
   const url = process.env.REACT_APP_BASE_URL;
-  const { setUserData, setLoading } = useUserData();
+  const { setUserData, dispatch, setLoading } = useUserData();
 
   React.useEffect(() => {
     fetchUserData();
@@ -23,6 +23,12 @@ function App() {
         .then(response => response.json())
         .then(data => {
           setUserData(data);
+          dispatch({
+            type: "INIT",
+            payload: {
+              items: data.items
+            }
+          });
           setLoading(false);
         })
         .catch(err => {
