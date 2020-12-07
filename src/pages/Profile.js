@@ -9,7 +9,6 @@ import { device } from "styles";
 const Profile = () => {
   const { userData, loading, state } = useUserData();
   const { user } = userData ?? {};
-console.log(state);
 
   return (
     <Fragment>
