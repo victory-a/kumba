@@ -11,9 +11,7 @@ const Profile = () => {
 
   return (
     <Fragment>
-        <FullPageSpinner />
-
-      {/* {loading ? (
+      {loading ? (
         <FullPageSpinner />
       ) : (
         <Wrapper>
@@ -23,7 +21,7 @@ const Profile = () => {
             <p className="bio">{user?.about}</p>
           </TextContainer>
         </Wrapper>
-      )} */}
+      )}
     </Fragment>
   );
 };
